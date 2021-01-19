@@ -134,16 +134,15 @@
      # Install and configure wordpress
      ###################################################
 
-
-     - name: Download wordpress (for Buster)
-       get_url:
-          url: https://wordpress.org/latest.zip
+     - name: copy file for Buster
+       copy:
+          src: ./latest.zip
           dest: /tmp/wordpress.zip
        when: ansible_distribution_release == 'buster'
 
-     - name: Download the latest version of wordpress (for Stretch/Jessie)
-       get_url:
-          url: https://wordpress.org/latest.zip
+     - name: copy file for Stretch/Jessie
+       copy:
+          src: ./latest.zip
           dest: /tmp/wordpress.zip
        when: ansible_distribution_release == 'stretch' or ansible_distribution_release == "jessie"
 
